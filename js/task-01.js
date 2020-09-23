@@ -1,30 +1,23 @@
 
 
+
 const categoryItems = categories.querySelectorAll('h2');
-//console.log(categoryItems);
-//console.log(categoryItems.length);
+// console.log (categoryItems);
+
+categoryItems.forEach(element => console.log(element.textContent));
 
 
-for (let i = 0; i < categoryItems.length; i += 1) {
-   
-    console.log(categoryItems[i].textContent);
+const findItems = categories.querySelectorAll('ul');
+// console.log (findItems);
 
-//     let countCategory = categoryItems[i].childNodes;
-//   console.log(countCategory);
+findItems.forEach(element => console.log(
+  `Категория: ${categoryItems[element]}
+Количество элементов: ${element.children.length}`
+));
 
-//     countCategory = categories[i].children;
-// console.log(countCategory[i].length);
+// for (let i = 0; i < findItems.length; i += 1) {
+//   console.log(
+//     findItems[i].children.length
+//     );
 
-  }
-  //   for (let i = 0; i < countCategory.length; i += 1) {
-//     console.log(countCategory[i].textContent);
-
-//   }
-
-
-
-let countCategory = categories.querySelectorAll('ul');
-console.log(countCategory.firstChild);
-
-
-
+// }
