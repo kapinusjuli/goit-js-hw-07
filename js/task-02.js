@@ -1,4 +1,3 @@
-
 const ingredients = [
   'Картошка',
   'Грибы',
@@ -8,24 +7,18 @@ const ingredients = [
   'Приправы',
 ];
 
-const exs = document.querySelector('ul');
-console.log(exs);
+let addLi = [];
 
+console.log(ingredients);
 
-const firstCategItemEl = appendChild('li');
+const allLi = ingredients.map(ingredient => {
+  addLi = document.createElement('li');
+  // addLi.classList.add('ingredient');
+  addLi.textContent = ingredient;
+return addLi;
+});
 
-// const makeIngredients = () => {
-// const newItem = ingredients.map( ingredient => ingredient);
+console.log(allLi);
 
-// console.log(newItem[0]);
-
-// const arrayItem = document.createElement(`li`);
-// arrayItem.textContent = newItem[0];
-
-// newItem.append(arrayItem);
-// return arrayItem;
-// }
-
-
-const exsFin = document.querySelector('ul');
-console.log(exsFin);
+const ulEl = document.querySelector('ul');
+ulEl.append(...allLi);
