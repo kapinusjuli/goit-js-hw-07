@@ -16,83 +16,39 @@ const images = [
   },
 ];
 
+const fullGallery = document.querySelector('#gallery');
+console.log(fullGallery);
+const cardGallery = createImageEl(images);
 
-console.log(images[0].url);
+fullGallery.insertAdjacentHTML('beforeend', cardGallery);
 
-
-const paletteContainer = document.querySelector('gallery');
-const cardsMarkup = createColorCardsMarkup(images);
-
-paletteContainer.insertAdjacentHTML('beforeend', html);
-
-paletteContainer.addEventListener('click', onPaletteContainerClick);
-
-function createColorCardsMarkup(images) {
-  return images
-    .map(({ url, alt }) => {
-      return `
-    <div class="color-card">
-     <div><div><div> <div
-     class="color-swatch"
-     data-hex="${url}"
-     data-rgb="${alt}"
-     style="background-color: ${url}"
-   ></div></div></div></div>
-      <div class="color-meta">
-        <p>HEX: ${url}</p>
-        <p>RGB: ${alt}</p>
-      </div>
-    </div>
-    `;
-    })
-    .join('');
+function createImageEl (images) {
+  const imageEl = images.map(({url, alt}) => {
+    return `<li class="image">
+      <a href=""><img src="${url}" alt="${alt}" width="240">
+    </li>`;
+  }).join('');
+  return imageEl;
 }
 
-function onPaletteContainerClick(evt) {
-  const isColorSwatchEl = evt.target.classList.contains('color-swatch');
+console.log(cardGallery);
 
-  if (!isColorSwatchEl) {
-    return;
-  }
 
-  const swatchEl = evt.target;
-  const parentColorCard = swatchEl.closest('.color-card');
-
-  removeActiveCardClass();
-  addActiveCardClass(parentColorCard);
-  setBodyBgColor(swatchEl.dataset.hex);
-}
-
-function setBodyBgColor(color) {
-  document.body.style.backgroundColor = color;
-}
-
-function removeActiveCardClass() {
-  const currentActiveCard = document.querySelector('.color-card.is-active');
-
-  if (currentActiveCard) {
-    currentActiveCard.classList.remove('is-active');
-  }
-}
-
-function addActiveCardClass(card) {
-  card.classList.add('is-active');
-}
 
 // const gallery = document.querySelector('#gallery');
 
 
 // const imgEl = images.map(image => {
-//   image = document.createElement('img');
-//   image.classList.add('image');
-//   image.src = images.url;
-//   image.alt = images.alt;
-//   image.width = 320;
+//   imageEl = document.createElement('img');
+//   imageEl.classList.add('image');
+//   imageEl.src = image.url;
+//   imageEl.alt = image.alt;
+//   imageEl.width = 320;
 // console.log(image);
 // });
 
 
-// console.log(imgEl);
+// console.log(imageEl);
 
 // // list.insertAdjacentHTML('afterbegin', '<li>${imgEl}</li>');
 // const ulEl = document.querySelector('ul');
