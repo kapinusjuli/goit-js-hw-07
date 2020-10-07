@@ -1,41 +1,26 @@
 
-const actions = Array.from(document.querySelectorAll('button'));
-console.log(actions);
-console.log(actions[0].dataset.action);
-
-const numbers = actions;
+const actionMinus = document.querySelector('.decrement');
+console.log(actionMinus);
 
 
-numbers.forEach(num => console.log(num.dataset.action));
-
-const summ = numbers.reduce((acc, value) => acc + value, 0);
-
-console.log(summ); // 15
+const actionPlus = document.querySelector('.increment');
+console.log(actionPlus);
 
 
+let startValue = document.querySelector('#value');
+let counterValue = Number (startValue.textContent);
+console.log(counterValue);
 
-// const targetBtn = document.querySelector('.js-target-btn');
-// const addListenerBtn = document.querySelector('.js-add-listener');
-// const removeListenerBtn = document.querySelector('.js-remove-listener');
+const addListenerBtnMinus = actionMinus.addEventListener('click', () => {
+  counterValue -=1;
+  startValue.textContent = counterValue;
 
-let counterValue = 0;
-
-
-addListenerBtn.addEventListener('click', event => {
-  console.log(event);
-  console.log('Вешаю слушателя события на целевую кнопку');
-
-  targetBtn.addEventListener('click', onTargetBtnClick);
 });
 
-// removeListenerBtn.addEventListener('click', event => {
-//   console.log(event);
-//   console.log('Снимаю слушателя события с целевой кнопки');
 
-//   targetBtn.removeEventListener('click', onTargetBtnClick);
-// });
 
-// function onTargetBtnClick(event) {
-//   console.log(event);
-//   console.log('Клик по целевой кнопке');
-// }
+const addListenerBtnPlus = actionPlus.addEventListener('click', () => {
+  counterValue +=1;
+  startValue.textContent = counterValue;
+
+});
