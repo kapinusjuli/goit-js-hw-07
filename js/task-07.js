@@ -12,7 +12,10 @@ const inputEl = document.querySelector('input');
   
 console.log(inputEl.id);
 
-inputEl.innerHTML = '  min="10" max="30" value="20" step="1"';
+// inputEl.insertAdjacentElement("beforeend", ' min="10" max="30" value="20" step="1"');
+
+// elem.insertAdjacentText(position, text)
+{/* <input id="font-size-control" type="range" min="10" max="30" value="20" step="1"></input> */}
 
 console.log(inputEl);
 

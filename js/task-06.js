@@ -26,14 +26,17 @@
 
 const inputEl = document.querySelector('input');
   
-console.log(inputEl.id);
+console.log(inputEl.placeholder);
 inputEl.classList.add('validation-input');
-console.log(inputEl.className);
+
 
 inputEl.addEventListener('input', onInputChange);
 
+const countSimb = Number(inputEl.dataset.length);
+console.log(countSimb);
+
 function onInputChange(event) {
-if (event.currentTarget.value.length !== 6) {
+if (event.currentTarget.value.length !== countSimb) {
 inputEl.classList.add('invalid')} else {
 inputEl.classList.add('valid')
 inputEl.classList.remove('invalid')
